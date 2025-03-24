@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_data.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 15:16:39 by aule-bre          #+#    #+#             */
+/*   Updated: 2025/03/24 15:17:44 by aule-bre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
 bool	fill_rgb(char *line, int *array)
 {
-	int		len;
-	int		i;
+	int	len;
+	int	i;
 
 	i = 0;
 	while (*line && i < 3)
 	{
 		len = 1;
-		while (ft_isdigit(*(line++)))	
+		while (ft_isdigit(*(line++)))
 			len++;
 		array[i] = ft_atoi(line - len);
 		line--;
@@ -17,7 +29,8 @@ bool	fill_rgb(char *line, int *array)
 			return (INVALID_CHAR, false);
 		i++;
 	}
-	if (array[0] < 0 || array[0] > 255 || array[1] < 0 || array[1] > 255 || array[2] < 0 || array[2] > 255)
+	if (array[0] < 0 || array[0] > 255 || array[1] < 0 || array[1] > 255
+		|| array[2] < 0 || array[2] > 255)
 		return (OUT_OF_SCALE_COLOR, false);
 	return (true);
 }

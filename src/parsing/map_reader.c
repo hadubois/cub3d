@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_reader.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 15:16:47 by aule-bre          #+#    #+#             */
+/*   Updated: 2025/03/24 15:18:05 by aule-bre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cube3d.h"
 
 char	*gnl_no_newline(int fd)
 {
 	char	*line;
-	
+
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
@@ -15,7 +27,6 @@ char	*gnl_no_newline(int fd)
 			return (NULL);
 	}
 	return (line);
-	
 }
 
 char	*get_map(int fd)
@@ -53,7 +64,7 @@ char	*open_map(char *map_file)
 
 bool	check_map_format(char *map_file)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(map_file);
 	if (len > 4)
