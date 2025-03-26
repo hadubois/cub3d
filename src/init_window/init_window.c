@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:40:10 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/26 16:06:33 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:24:42 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	init_window(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (MLX_FAIL, false);
-	data->win = mlx_new_window(data->mlx, 1280, 720, "cube3d aule-bre");
+	data->win = mlx_new_window(data->mlx, 40 * data->mapy + 1, 40 * data->mapx + 1, "cube3d aule-bre");
 	data->no.addr = mlx_xpm_file_to_image(data->mlx, data->no.path,
 			&data->width, &data->height);
 	data->so.addr = mlx_xpm_file_to_image(data->mlx, data->so.path,

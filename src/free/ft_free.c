@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:17:13 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/26 15:50:51 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:37:52 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,16 @@ void	free_data(t_data *data)
 int	close_mlx(t_data *data)
 {
 	if (data->win)
+	{
 		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_image (data->mlx, data->no.addr);
+		mlx_destroy_image (data->mlx, data->so.addr);
+		mlx_destroy_image (data->mlx, data->we.addr);
+		mlx_destroy_image (data->mlx, data->ea.addr);
+	}
 	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	free_data(data);
 	exit(0);
 	return (0);
 }
@@ -47,8 +55,16 @@ int	close_mlx(t_data *data)
 int	close_mlx_error(t_data *data)
 {
 	if (data->win)
+	{
 		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_image (data->mlx, data->no.addr);
+		mlx_destroy_image (data->mlx, data->so.addr);
+		mlx_destroy_image (data->mlx, data->we.addr);
+		mlx_destroy_image (data->mlx, data->ea.addr);
+	}
 	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	free_data(data);
 	exit(1);
 	return (0);
 }

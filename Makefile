@@ -16,7 +16,7 @@ SRC_PARSING =	src/parsing/parse.c \
 				src/parsing/fill_data.c \
 				src/parsing/check_map.c
 
-SRC_FREE =		src/free/ft_free.c
+SRC_FREE =		src/free/ft_free.c src/print/print_minimap.c
 
 SRC_MLX_INIT = 	src/init_window/init_window.c
 

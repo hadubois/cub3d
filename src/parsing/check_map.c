@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:15 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/24 15:18:15 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 17:24:58 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ bool	check_around(char **map, int i, int j)
 	return (true);
 }
 
-bool	check_borders(char **map)
+bool	check_borders(char **map, t_data *data)
 {
 	int	i;
 	int	j;
+	int jmax;
 
 	i = -1;
+	jmax = 0;
 	while (map[++i])
 	{
 		j = -1;
@@ -76,7 +78,11 @@ bool	check_borders(char **map)
 					return (false);
 			}
 		}
+		if (j > jmax)
+			jmax = j;
 	}
+	data->mapx = i;
+	data->mapy = jmax;
 	return (true);
 }
 
@@ -84,7 +90,7 @@ bool	check_map(t_data *data)
 {
 	if (check_values(data->map, data->orientation) == false)
 		return (false);
-	if (check_borders(data->map) == false)
+	if (check_borders(data->map, data) == false)
 		return (INVALID_BORDERS, false);
 	return (true);
 }
