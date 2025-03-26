@@ -1,7 +1,8 @@
 NAME = cube3d
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INCDIR) -Ilib/libft -Ilib/get_next_line -g3
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -I$(INCDIR) -Ilib/libft -Ilib/get_next_line -g3
+MLX_FLAGS	=	-lX11 -lXext
 
 OBJDIR = obj
 INCDIR = includes
@@ -17,7 +18,9 @@ SRC_PARSING =	src/parsing/parse.c \
 
 SRC_FREE =		src/free/ft_free.c
 
-SRC = $(SRC_MAIN) $(SRC_PARSING) $(SRC_FREE)
+SRC_MLX_INIT = 	src/init_window/init_window.c
+
+SRC = $(SRC_MAIN) $(SRC_PARSING) $(SRC_FREE) $(SRC_MLX_INIT)
 OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 
 all: $(OBJDIR) $(NAME)
@@ -41,7 +44,7 @@ $(NAME): lib $(OBJ)
 	make -C mlx
 	cp mlx/libmlx.a ./
 	cp mlx/libmlx_Linux.a ./
-	$(CC) $(CFLAGS) $(OBJ) libmlx.a libmlx_Linux.a $(LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) libmlx.a libmlx_Linux.a $(LIB) $(MLX_FLAGS) -o $(NAME)
 
 clean:
 	make clean -C mlx

@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:56 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/24 15:18:23 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:59:55 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ bool	parse(char *map_file, t_data *data)
 		return (free_data(data), false);
 	if (check_map(data) == false)
 		return (free_data(data), false);
+	data->width = 40;
+	data->height = 40;
 	return (true);
 }

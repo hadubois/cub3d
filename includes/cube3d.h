@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/24 15:16:26 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:00:13 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,37 @@
 # define INVALID_VALUES printf("Error\ninvalid map: unknown char in the map\n")
 # define MULTIPLE_START printf("Error\ninvalid map: multiple start points\n")
 # define INVALID_BORDERS printf("Error\ninvalid map: map isn't correctly closed\n")
+# define MLX_FAIL printf("Error\nmlx: an error occured during mlx initialization\n")
+# define MLX_IMG_FAIL printf("Error\nmlx: conversion to image failed\n")
 
 // STRUCTURES ----------------------------------------------
 
+typedef struct s_coo
+{
+	int 	x;
+	int 	y;
+}			t_coo;
+
+typedef struct s_sprite
+{
+	char	*path;
+	void	*addr;
+}			t_sprite;
+
 typedef struct s_data
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
+	t_sprite	no;
+	t_sprite	so;
+	t_sprite	we;
+	t_sprite	ea;
 	int		f[3];
 	int		c[3];
 	char	orientation;
 	char	**map;
+	void	*mlx;
+	void	*win;
+	int		width;
+	int		height;
 }			t_data;
 
 // PROTOTYPES ----------------------------------------------
@@ -76,9 +94,15 @@ char		*open_map(char *map_file);
 bool		fill_data(char *map_content, t_data *data);
 bool		check_map(t_data *data);
 
+// MLX INIT
+
+bool		init_window(t_data *data);
+
 // FREE
 
 void		free_tab(void **tab);
 void		free_data(t_data *data);
+int			close_mlx(t_data *data);
+int			close_mlx_error(t_data *data);
 
 #endif

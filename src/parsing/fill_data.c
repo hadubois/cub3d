@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:39 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/24 15:17:44 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:51:25 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,19 @@ bool	fill_identifiers(char *map_content, t_data *data)
 	if (!map)
 		return (ERROR_MALLOC, false);
 	if (map[0] && ft_strncmp(map[0], "NO ", 3) == 0)
-		data->no = ft_strdup(&map[0][3]);
+		data->no.path = ft_strdup(&map[0][3]);
 	if (map[1] && ft_strncmp(map[1], "SO ", 3) == 0)
-		data->so = ft_strdup(&map[1][3]);
+		data->so.path = ft_strdup(&map[1][3]);
 	if (map[2] && ft_strncmp(map[2], "WE ", 3) == 0)
-		data->we = ft_strdup(&map[2][3]);
+		data->we.path = ft_strdup(&map[2][3]);
 	if (map[3] && ft_strncmp(map[3], "EA ", 3) == 0)
-		data->ea = ft_strdup(&map[3][3]);
+		data->ea.path = ft_strdup(&map[3][3]);
 	if (map[4] && ft_strncmp(map[4], "F ", 2) == 0)
 		checker_f = fill_rgb(&map[4][2], data->f);
 	if (map[5] && ft_strncmp(map[5], "C ", 2) == 0)
 		checker_c = fill_rgb(&map[5][2], data->c);
 	free_tab((void **)map);
-	if (!data->no || !data->so || !data->we || !data->ea)
+	if (!data->no.path || !data->so.path || !data->we.path || !data->ea.path)
 		return (WRONG_IDENTIFIER, false);
 	else if (!checker_f || !checker_c)
 		return (false);
