@@ -14,16 +14,20 @@
 
 int	key_hook(int keycode, t_data *data)
 {
-	if (keycode == 65361 && check_left(data))
-		data->player.x--;
-	if (keycode == 65363 && check_right(data))
-		data->player.x++;
-	if (keycode == 65362 && check_up(data))
-		data->player.y--;
-	if (keycode == 65364 && check_down(data))
-		data->player.y++;
-	if (keycode == 65307)
+	if (keycode == 65361)
+		data->player_angle -= M_PI / 16;
+	else if (keycode == 65363)
+		data->player_angle += M_PI / 16;
+	else if (keycode == 122)
+		data->player.y -= 10;
+	else if (keycode == 115)
+		data->player.y += 10;
+	else if (keycode == 100)
+		data->player.x += 10;
+	else if (keycode == 113)
+		data->player.x -= 10;
+	else if (keycode == 65307)
 		close_mlx(data);
-	print_map(data);
+	print_minimap(data);
 	return (0);
 }

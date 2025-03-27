@@ -76,14 +76,13 @@ typedef struct s_data
 	t_sprite	ea;
 	int		f[3];
 	int		c[3];
-	char	orientation;
 	char	**map;
 	void	*mlx;
 	void	*win;
 	int		width;
 	int		height;
-	int		mapx;
-	int		mapy;
+	t_coo	map_size;
+	float	player_angle;
 	t_coo	player;
 }			t_data;
 
@@ -111,5 +110,9 @@ int			close_mlx_error(t_data *data);
 // TMP
 
 void	print_minimap(t_data *data);
+
+// KEY HOOKS
+
+int	key_hook(int keycode, t_data *data);
 
 #endif

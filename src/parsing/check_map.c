@@ -12,7 +12,22 @@
 
 #include "cube3d.h"
 
-bool	check_values(char **map, char orientation)
+void	init_player(t_data *data, int i, int j)
+{
+	if (data->map[i][j] == 'N')
+		data->player_angle = M_PI / 2;
+	else if (data->map[i][j] == 'S')
+		data->player_angle = 3 * M_PI / 2;
+	else if (data->map[i][j] == 'E')
+		data->player_angle = -1 * M_PI;
+	else if (data->map[i][j] == 'W')
+		data->player_angle = 0;
+	data->player.x = j * 40 + 20;
+	data->player.y = i * 40 + 20;
+	printf("angle : %f\nx : %d\ny : %d\n", data->player_angle, data->player.x, data->player.y);
+}
+
+bool	check_values(char **map, t_data *data)
 {
 	int	start;
 	int	i;
@@ -29,7 +44,7 @@ bool	check_values(char **map, char orientation)
 				return (INVALID_VALUES, false);
 			if (ft_strrchr("NSEW", map[i][j]))
 			{
-				orientation = map[i][j];
+				init_player(data, i, j);
 				start++;
 			}
 		}
@@ -81,14 +96,14 @@ bool	check_borders(char **map, t_data *data)
 		if (j > jmax)
 			jmax = j;
 	}
-	data->mapx = i;
-	data->mapy = jmax;
+	data->map_size.x = i;
+	data->map_size.y = jmax;
 	return (true);
 }
 
 bool	check_map(t_data *data)
 {
-	if (check_values(data->map, data->orientation) == false)
+	if (check_values(data->map, data) == false)
 		return (false);
 	if (check_borders(data->map, data) == false)
 		return (INVALID_BORDERS, false);

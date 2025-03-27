@@ -18,15 +18,14 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (WRONG_NUMBER_ARG, 1);
-	ft_bzero(&data, sizeof(t_data));
+	ft_memset(&data, 0, sizeof(t_data));
 	if (parse(av[1], &data) == false)
 		return (1);
 	if (init_window(&data) == false)
 		close_mlx_error(&data);
-	print_minimap(&data);
+	//print_minimap(&data);
 	mlx_hook(data.win, 17, 0, close_mlx, &data);
-	//mlx_key_hook(data.win, key_hook, &data);
+	mlx_key_hook(data.win, key_hook, &data);
 	mlx_loop(data.mlx);
-
 	return (0);
 }
