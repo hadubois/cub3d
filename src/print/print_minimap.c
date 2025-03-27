@@ -48,24 +48,40 @@ void	fill_all(t_data *data)
 	
 }
 
+void	print_line(t_data *data, int i, float r)
+{
+	int len;
+
+	len = -1;
+	while (++len < SC_HEI / r / 2 * 5)
+		mlx_pixel_put(data->mlx, data->win, i, SC_HEI / 2 + len, 255);
+	len = -1;
+	while (++len < SC_HEI / r / 2 * 5)
+		mlx_pixel_put(data->mlx, data->win, i, SC_HEI / 2 - len, 255);
+}
+
 void	print_ray(t_data *data)
 {
-	int r;
+	float r;
 	int ray_x;
 	int ray_y;
 	float fov;
+	int i;
 
 	fov = -1 * M_PI / 8;
-	while (fov < M_PI / 8)
+	i = -1;
+	while (++i < SC_WID)
 	{
-		r = -1;
-		while (++r == 0 || data->map[ray_y / 40][ray_x / 40] != '1')
+		r = 0;
+		while (r == 0 || data->map[ray_y / 40][ray_x / 40] != '1')
 		{
 			ray_x = data->player.x - cos(data->player_angle + fov) * r;
 			ray_y = data->player.y - sin(data->player_angle + fov) * r;
 			mlx_pixel_put(data->mlx, data->win, ray_x, ray_y, data->f[0] << 16 | data->f[1] << 8 | data->f[2]);
+			r += 0.1;
 		}
-		fov += M_PI / 1000;
+		print_line(data, i, r);
+		fov += M_PI / 4 / SC_WID;
 	}
 }
 
@@ -90,6 +106,7 @@ void	print_minimap(t_data *data)
 	int len;
 	
 	i = -1;
+	mlx_clear_window(data->mlx, data->win);
 	while (++i < data->map_size.x + 1)
 	{
 		len = -1;

@@ -52,6 +52,11 @@
 # define MLX_FAIL printf("Error\nmlx: an error occured during mlx initialization\n")
 # define MLX_IMG_FAIL printf("Error\nmlx: conversion to image failed\n")
 
+// SCREEN SHIT
+
+# define SC_HEI 900 
+# define SC_WID 1600
+
 // STRUCTURES ----------------------------------------------
 
 typedef struct s_coo

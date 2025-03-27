@@ -17,7 +17,7 @@ bool	init_window(t_data *data)
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (MLX_FAIL, false);
-	data->win = mlx_new_window(data->mlx, 1600, 900, "cube3d aule-bre");
+	data->win = mlx_new_window(data->mlx, SC_WID, SC_HEI, "cube3d aule-bre");
 	data->no.addr = mlx_xpm_file_to_image(data->mlx, data->no.path,
 			&data->width, &data->height);
 	data->so.addr = mlx_xpm_file_to_image(data->mlx, data->so.path,
