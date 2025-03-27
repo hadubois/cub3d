@@ -53,13 +53,19 @@ void	print_ray(t_data *data)
 	int r;
 	int ray_x;
 	int ray_y;
+	float fov;
 
-	r = -1;
-	while (++r == 0 || data->map[ray_y / 40][ray_x / 40] != '1')
+	fov = -1 * M_PI / 8;
+	while (fov < M_PI / 8)
 	{
-		ray_x = data->player.x - cos(data->player_angle) * r;
-		ray_y = data->player.y - sin(data->player_angle) * r;
-		mlx_pixel_put(data->mlx, data->win, ray_x, ray_y, 16711935);
+		r = -1;
+		while (++r == 0 || data->map[ray_y / 40][ray_x / 40] != '1')
+		{
+			ray_x = data->player.x - cos(data->player_angle + fov) * r;
+			ray_y = data->player.y - sin(data->player_angle + fov) * r;
+			mlx_pixel_put(data->mlx, data->win, ray_x, ray_y, data->f[0] << 16 | data->f[1] << 8 | data->f[2]);
+		}
+		fov += M_PI / 1000;
 	}
 }
 

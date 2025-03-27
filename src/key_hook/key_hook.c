@@ -12,6 +12,30 @@
 
 #include "cube3d.h"
 
+void	move(t_data *data, int dir)
+{
+	if (dir == FORWARD)
+	{
+		data->player.y -= (int)(10 * sin(data->player_angle));
+		data->player.x -= (int)(10 * cos(data->player_angle));
+	}
+	if (dir == BACKWARD)
+	{
+		data->player.y += (int)(10 * sin(data->player_angle));
+		data->player.x += (int)(10 * cos(data->player_angle));
+	}
+	if (dir == LEFT)
+	{
+		data->player.y += (int)(10 * cos(data->player_angle));
+		data->player.x -= (int)(10 * sin(data->player_angle));
+	}
+	if (dir == RIGHT)
+	{
+		data->player.y -= (int)(10 * cos(data->player_angle));
+		data->player.x += (int)(10 * sin(data->player_angle));
+	}
+}
+
 int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == 65361)
@@ -19,13 +43,13 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == 65363)
 		data->player_angle += M_PI / 16;
 	else if (keycode == 122)
-		data->player.y -= 10;
+		move(data, FORWARD);
 	else if (keycode == 115)
-		data->player.y += 10;
+		move(data, BACKWARD);
 	else if (keycode == 100)
-		data->player.x += 10;
+		move(data, RIGHT);
 	else if (keycode == 113)
-		data->player.x -= 10;
+		move(data, LEFT);
 	else if (keycode == 65307)
 		close_mlx(data);
 	print_minimap(data);

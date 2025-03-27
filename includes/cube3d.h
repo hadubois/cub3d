@@ -34,8 +34,6 @@
 # define BACKWARD 1
 # define LEFT 2
 # define RIGHT 3
-# define WATCH_LEFT 4
-# define WATCH_RIGHT 5
 
 // ERROR MESSAGES
 
@@ -79,6 +77,7 @@ typedef struct s_data
 	char	**map;
 	void	*mlx;
 	void	*win;
+	void	*win_rcst;
 	int		width;
 	int		height;
 	t_coo	map_size;
