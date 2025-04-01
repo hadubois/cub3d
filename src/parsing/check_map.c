@@ -22,8 +22,8 @@ void	init_player(t_data *data, int i, int j)
 		data->player_angle = -1 * M_PI;
 	else if (data->map[i][j] == 'W')
 		data->player_angle = 0;
-	data->player.x = j * 40 + 20;
-	data->player.y = i * 40 + 20;
+	data->player.x = j * 32 + 16;
+	data->player.y = i * 32 + 16;
 	printf("angle : %f\nx : %d\ny : %d\n", data->player_angle, data->player.x, data->player.y);
 }
 

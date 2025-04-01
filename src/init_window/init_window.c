@@ -12,12 +12,20 @@
 
 #include "cube3d.h"
 
+void	init_img(t_data *data)
+{
+	data->img.img = mlx_new_image(data->mlx, SC_WID, SC_HEI);
+	data->img.img_pix = mlx_get_data_addr(data->img.img, &data->img.bpp, 
+		&data->img.size_line, &data->img.endian);
+}
+
 bool	init_window(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (MLX_FAIL, false);
 	data->win = mlx_new_window(data->mlx, SC_WID, SC_HEI, "cube3d aule-bre");
+	init_img(data);
 	data->no.addr = mlx_xpm_file_to_image(data->mlx, data->no.path,
 			&data->width, &data->height);
 	data->so.addr = mlx_xpm_file_to_image(data->mlx, data->so.path,

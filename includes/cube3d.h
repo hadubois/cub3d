@@ -57,6 +57,15 @@
 # define SC_HEI 900 
 # define SC_WID 1600
 
+// COLORS
+
+#define PASTEL_PINK   16761052
+#define PASTEL_BLUE   11417103
+#define PASTEL_GREEN   7852535
+#define PASTEL_YELLOW 16645398
+#define PASTEL_PURPLE 12757889
+#define PASTEL_ORANGE 16756103
+
 // STRUCTURES ----------------------------------------------
 
 typedef struct s_coo
@@ -71,18 +80,27 @@ typedef struct s_sprite
 	void	*addr;
 }			t_sprite;
 
+typedef struct s_img
+{
+	void	*img;
+	char	*img_pix;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}			t_img;
+
 typedef struct s_data
 {
 	t_sprite	no;
 	t_sprite	so;
 	t_sprite	we;
 	t_sprite	ea;
+	t_img		img;
 	int		f[3];
 	int		c[3];
 	char	**map;
 	void	*mlx;
 	void	*win;
-	void	*win_rcst;
 	int		width;
 	int		height;
 	t_coo	map_size;
@@ -118,5 +136,12 @@ void	print_minimap(t_data *data);
 // KEY HOOKS
 
 int	key_hook(int keycode, t_data *data);
+
+// RAYCAST
+
+void	print_ray(t_data *data);
+void    my_pixel_put(int x, int y, t_data *data, int color);
+void	print_back(t_data *data);
+
 
 #endif

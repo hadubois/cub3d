@@ -12,46 +12,65 @@
 
 #include "cube3d.h"
 
+bool	check_dir(t_data *data, int dir)
+{
+	t_coo	new;
+
+	printf("dir: %d - forward: %d\n", dir, FORWARD);
+	if (dir == FORWARD)
+	{
+		new.x = data->player.x - (int)(21 * cos(data->player_angle));
+		new.y = data->player.y - (int)(21 * sin(data->player_angle));
+		printf("current coordinates x: %d - y: %d - tile: <%c>\nnew coordinates x: %d - y: %d - tile: <%c>\n", data->player.x, data->player.y, data->map[data->player.y / 32][data->player.x / 32], new.x, new.y, data->map[new.y / 32][new.x / 32]);
+		if (data->map[new.y / 32][new.x / 32] == '1')
+			return (printf("here"), false);
+		return(true);
+	}
+	return (true);
+}
+
 void	move(t_data *data, int dir)
 {
 	if (dir == FORWARD)
 	{
-		data->player.y -= (int)(10 * sin(data->player_angle));
-		data->player.x -= (int)(10 * cos(data->player_angle));
+		data->player.y -= (int)(4 * sin(data->player_angle));
+		data->player.x -= (int)(4 * cos(data->player_angle));
 	}
 	if (dir == BACKWARD)
 	{
-		data->player.y += (int)(10 * sin(data->player_angle));
-		data->player.x += (int)(10 * cos(data->player_angle));
+		data->player.y += (int)(4 * sin(data->player_angle));
+		data->player.x += (int)(4 * cos(data->player_angle));
 	}
 	if (dir == LEFT)
 	{
-		data->player.y += (int)(10 * cos(data->player_angle));
-		data->player.x -= (int)(10 * sin(data->player_angle));
+		data->player.y += (int)(4 * cos(data->player_angle));
+		data->player.x -= (int)(4 * sin(data->player_angle));
 	}
 	if (dir == RIGHT)
 	{
-		data->player.y -= (int)(10 * cos(data->player_angle));
-		data->player.x += (int)(10 * sin(data->player_angle));
+		data->player.y -= (int)(4 * cos(data->player_angle));
+		data->player.x += (int)(4 * sin(data->player_angle));
 	}
 }
 
 int	key_hook(int keycode, t_data *data)
 {
 	if (keycode == 65361)
-		data->player_angle -= M_PI / 16;
-	else if (keycode == 65363)
-		data->player_angle += M_PI / 16;
-	else if (keycode == 122)
+		data->player_angle -= M_PI / 64;
+	if (keycode == 65363)
+		data->player_angle += M_PI / 64;
+	if (keycode == 122 && check_dir(data, FORWARD))
 		move(data, FORWARD);
-	else if (keycode == 115)
+	if (keycode == 115)
 		move(data, BACKWARD);
-	else if (keycode == 100)
+	if (keycode == 100 && check_dir(data, BACKWARD))
 		move(data, RIGHT);
-	else if (keycode == 113)
+	if (keycode == 113 && check_dir(data, RIGHT))
 		move(data, LEFT);
-	else if (keycode == 65307)
+	if (keycode == 65307)
 		close_mlx(data);
-	print_minimap(data);
+	print_back(data);
+	print_ray(data);
+	mlx_put_image_to_window (data->mlx, data->win, data->img.img, 0, 0);
 	return (0);
 }

@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		close_mlx_error(&data);
 	//print_minimap(&data);
 	mlx_hook(data.win, 17, 0, close_mlx, &data);
-	mlx_key_hook(data.win, key_hook, &data);
+	mlx_hook(data.win, 2, 1L<<0, key_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
