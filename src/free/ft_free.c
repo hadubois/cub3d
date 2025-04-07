@@ -44,6 +44,7 @@ int	close_mlx(t_data *data)
 		mlx_destroy_image (data->mlx, data->so.addr);
 		mlx_destroy_image (data->mlx, data->we.addr);
 		mlx_destroy_image (data->mlx, data->ea.addr);
+		mlx_destroy_image (data->mlx, data->img.img);
 	}
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

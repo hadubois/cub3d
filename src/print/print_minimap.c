@@ -18,11 +18,11 @@ void	fill_square(t_data *data, int x, int y, int color)
 	int j;
 	
 	i = 0;
-	while (++i < 40)
+	while (++i < 32)
 	{
 		j = 0;
-		while (++j < 40)
-			mlx_pixel_put(data->mlx, data->win, 40 * x + i, 40 * y + j, color);
+		while (++j < 32)
+			mlx_pixel_put(data->mlx, data->win, 32 * x + i, 32 * y + j, color);
 	}
 }
 
@@ -58,9 +58,8 @@ void	print_player(t_data *data)
 	{
 		j = -2;
 		while (++j < 2)
-			;//mlx_pixel_put(data->mlx, data->win, data->player.x + i, data->player.y + j, 16711680);
+			mlx_pixel_put(data->mlx, data->win, data->player.x/2 + i, data->player.y/2 + j, 16711680);
 	}
-	print_ray(data);
 }
 
 void	print_minimap(t_data *data)
@@ -73,16 +72,17 @@ void	print_minimap(t_data *data)
 	while (++i < data->map_size.x + 1)
 	{
 		len = -1;
-		while (++len < 40 * data->map_size.y)
-			;//mlx_pixel_put(data->mlx, data->win, len, i * 40, 5919317);
+		while (++len < 32 * data->map_size.y)
+			mlx_pixel_put(data->mlx, data->win, len, i * 32, 5919317);
 	}
 	i = -1;
 	while (++i < data->map_size.y + 1)
 	{
 		len = -1;
-		while (++len < 40 * data->map_size.x)
-			;//mlx_pixel_put(data->mlx, data->win, i * 40, len, 5919317);
+		while (++len < 32 * data->map_size.x)
+			mlx_pixel_put(data->mlx, data->win, i * 32, len, 5919317);
 	}
 	//fill_all(data);
 	print_player(data);
+	//print_ray(data);
 }

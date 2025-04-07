@@ -63,7 +63,7 @@
 #define PASTEL_BLUE   11417103
 #define PASTEL_GREEN   7852535
 #define PASTEL_YELLOW 16645398
-#define PASTEL_PURPLE 12757889
+#define PASTEL_BROWN 12757889
 #define PASTEL_ORANGE 16756103
 
 // STRUCTURES ----------------------------------------------
@@ -73,6 +73,13 @@ typedef struct s_coo
 	int 	x;
 	int 	y;
 }			t_coo;
+
+typedef struct s_ray
+{
+	t_coo	ray;
+	t_coo	prev;
+	int		i;
+}			t_ray;
 
 typedef struct s_sprite
 {
