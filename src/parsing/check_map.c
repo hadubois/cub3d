@@ -22,9 +22,8 @@ void	init_player(t_data *data, int i, int j)
 		data->player_angle = -1 * M_PI;
 	else if (data->map[i][j] == 'W')
 		data->player_angle = 0;
-	data->player.x = j * 64 + 32;
-	data->player.y = i * 64 + 32;
-	printf("angle : %f\nx : %d\ny : %d\n", data->player_angle, data->player.x, data->player.y);
+	data->player.x = j * 32 + 16;
+	data->player.y = i * 32 + 16;
 }
 
 bool	check_values(char **map, t_data *data)
@@ -78,7 +77,7 @@ bool	check_borders(char **map, t_data *data)
 {
 	int	i;
 	int	j;
-	int jmax;
+	int	jmax;
 
 	i = -1;
 	jmax = 0;

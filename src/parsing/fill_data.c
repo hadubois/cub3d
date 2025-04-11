@@ -103,5 +103,7 @@ bool	fill_data(char *map_content, t_data *data)
 		return (free(map_content), false);
 	if (fill_map(map_content, data) == false)
 		return (free(map_content), EMPTY_MAP, false);
+	data->floor = (data->f[0] << 16) | (data->f[1] << 8) | data->f[2];
+	data->ceiling = (data->c[0] << 16) | (data->c[1] << 8) | data->c[2];
 	return (free(map_content), true);
 }

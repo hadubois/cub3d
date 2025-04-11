@@ -40,11 +40,11 @@ int	close_mlx(t_data *data)
 	if (data->win)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_image (data->mlx, data->no.addr);
-		mlx_destroy_image (data->mlx, data->so.addr);
-		mlx_destroy_image (data->mlx, data->we.addr);
-		mlx_destroy_image (data->mlx, data->ea.addr);
-		mlx_destroy_image (data->mlx, data->img.img);
+		mlx_destroy_image(data->mlx, data->no.img);
+		mlx_destroy_image(data->mlx, data->so.img);
+		mlx_destroy_image(data->mlx, data->we.img);
+		mlx_destroy_image(data->mlx, data->ea.img);
+		mlx_destroy_image(data->mlx, data->img.img);
 	}
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
@@ -58,10 +58,10 @@ int	close_mlx_error(t_data *data)
 	if (data->win)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_image (data->mlx, data->no.addr);
-		mlx_destroy_image (data->mlx, data->so.addr);
-		mlx_destroy_image (data->mlx, data->we.addr);
-		mlx_destroy_image (data->mlx, data->ea.addr);
+		mlx_destroy_image(data->mlx, data->no.img);
+		mlx_destroy_image(data->mlx, data->so.img);
+		mlx_destroy_image(data->mlx, data->we.img);
+		mlx_destroy_image(data->mlx, data->ea.img);
 	}
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

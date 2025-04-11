@@ -54,24 +54,24 @@
 
 // SCREEN SHIT
 
-# define SC_HEI 900 
-# define SC_WID 1600
+# define SC_HEI 450
+# define SC_WID 800
 
 // COLORS
 
-#define PASTEL_PINK   16761052
-#define PASTEL_BLUE   11417103
-#define PASTEL_GREEN   7852535
-#define PASTEL_YELLOW 16645398
-#define PASTEL_BROWN 12757889
-#define PASTEL_ORANGE 16756103
+# define PASTEL_PINK 16761052
+# define PASTEL_BLUE 11417103
+# define PASTEL_GREEN 7852535
+# define PASTEL_YELLOW 16645398
+# define PASTEL_BROWN 12757889
+# define PASTEL_ORANGE 16756103
 
 // STRUCTURES ----------------------------------------------
 
 typedef struct s_coo
 {
-	int 	x;
-	int 	y;
+	int		x;
+	int		y;
 }			t_coo;
 
 typedef struct s_ray
@@ -89,6 +89,7 @@ typedef struct s_sprite
 
 typedef struct s_img
 {
+	char	*path;
 	void	*img;
 	char	*img_pix;
 	int		bpp;
@@ -98,13 +99,15 @@ typedef struct s_img
 
 typedef struct s_data
 {
-	t_sprite	no;
-	t_sprite	so;
-	t_sprite	we;
-	t_sprite	ea;
-	t_img		img;
+	t_img	no;
+	t_img	so;
+	t_img	we;
+	t_img	ea;
+	t_img	img;
 	int		f[3];
 	int		c[3];
+	int		floor;
+	int		ceiling;
 	char	**map;
 	void	*mlx;
 	void	*win;
@@ -138,17 +141,20 @@ int			close_mlx_error(t_data *data);
 
 // TMP
 
-void	print_minimap(t_data *data);
+void		print_minimap(t_data *data);
 
 // KEY HOOKS
 
-int	key_hook(int keycode, t_data *data);
+int			key_hook(int keycode, t_data *data);
 
 // RAYCAST
 
-void	print_ray(t_data *data);
-void    my_pixel_put(int x, int y, t_data *data, int color);
-void	print_back(t_data *data);
-
+void		print_ray(t_data *data);
+void		my_pixel_put(int x, int y, t_data *data, int color);
+void		print_back(t_data *data);
+void		print_line_east(t_data *data, t_ray ray, float r, t_img face);
+void		print_line_west(t_data *data, t_ray ray, float r, t_img face);
+void		print_line_north(t_data *data, t_ray ray, float r, t_img face);
+void		print_line_south(t_data *data, t_ray ray, float r, t_img face);
 
 #endif

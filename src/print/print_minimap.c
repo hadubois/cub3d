@@ -14,9 +14,9 @@
 
 void	fill_square(t_data *data, int x, int y, int color)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (++i < 32)
 	{
@@ -45,28 +45,28 @@ void	fill_all(t_data *data)
 				fill_square(data, j, i, 12255177);
 		}
 	}
-	
 }
 
 void	print_player(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -2;
 	while (++i < 2)
 	{
 		j = -2;
 		while (++j < 2)
-			mlx_pixel_put(data->mlx, data->win, data->player.x/2 + i, data->player.y/2 + j, 16711680);
+			mlx_pixel_put(data->mlx, data->win, data->player.x / 2 + i,
+					data->player.y / 2 + j, 16711680);
 	}
 }
 
 void	print_minimap(t_data *data)
 {
 	int	i;
-	int len;
-	
+	int	len;
+
 	i = -1;
 	mlx_clear_window(data->mlx, data->win);
 	while (++i < data->map_size.x + 1)

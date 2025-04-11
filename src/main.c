@@ -23,12 +23,11 @@ int	main(int ac, char **av)
 		return (1);
 	if (init_window(&data) == false)
 		close_mlx_error(&data);
-	//print_minimap(&data);
 	print_back(&data);
 	print_ray(&data);
-	mlx_put_image_to_window (data.mlx, data.win, data.img.img, 0, 0);
+	mlx_put_image_to_window(data.mlx, data.win, data.img.img, 0, 0);
 	mlx_hook(data.win, 17, 0, close_mlx, &data);
-	mlx_hook(data.win, 2, 1L<<0, key_hook, &data);
+	mlx_hook(data.win, 2, 1L << 0, key_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

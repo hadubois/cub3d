@@ -25,7 +25,7 @@ bool	parse(char *map_file, t_data *data)
 		return (free_data(data), false);
 	if (check_map(data) == false)
 		return (free_data(data), false);
-	data->width = 40;
-	data->height = 40;
+	data->width = 64;
+	data->height = 64;
 	return (true);
 }

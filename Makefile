@@ -23,6 +23,7 @@ SRC_MLX_INIT = 	src/init_window/init_window.c
 SRC_RAYCAST = 	src/key_hook/key_hook.c \
 				src/print/print_minimap.c \
 				src/print/print_ray.c \
+				src/print/print_face.c \
 				src/print/my_pixel_put.c
 
 SRC = $(SRC_MAIN) $(SRC_PARSING) $(SRC_FREE) $(SRC_MLX_INIT) $(SRC_RAYCAST)

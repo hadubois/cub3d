@@ -12,53 +12,31 @@
 
 #include "cube3d.h"
 
-
-
-void	print_new(t_data *data, int x, int y)
-{
-	int i;
-	int j;
-
-	i = -2;
-	while (++i < 2)
-	{
-		j = -2;
-		while (++j < 2)
-			mlx_pixel_put(data->mlx, data->win, y + i, x + j, PASTEL_BROWN);
-	}
-}
-
-
-
-
-
-
 bool	check_dir(t_data *data, int dir)
 {
 	t_coo	new;
 
 	if (dir == FORWARD)
 	{
-		new.x = data->player.x - (int)(16 * cos(data->player_angle));
-		new.y = data->player.y - (int)(16 * sin(data->player_angle));
+		new.x = data->player.x - (int)(8 * cos(data->player_angle));
+		new.y = data->player.y - (int)(8 * sin(data->player_angle));
 	}
 	if (dir == BACKWARD)
 	{
-		new.x = data->player.x + (int)(16 * cos(data->player_angle));
-		new.y = data->player.y + (int)(16 * sin(data->player_angle));
+		new.x = data->player.x + (int)(8 * cos(data->player_angle));
+		new.y = data->player.y + (int)(8 * sin(data->player_angle));
 	}
 	if (dir == LEFT)
 	{
-		new.x = data->player.x - (int)(16 * sin(data->player_angle));
-		new.y = data->player.y + (int)(16 * cos(data->player_angle));
+		new.x = data->player.x - (int)(8 * sin(data->player_angle));
+		new.y = data->player.y + (int)(8 * cos(data->player_angle));
 	}
 	if (dir == RIGHT)
 	{
-		new.x = data->player.x + (int)(16 * sin(data->player_angle));
-		new.y = data->player.y - (int)(16 * cos(data->player_angle));
+		new.x = data->player.x + (int)(8 * sin(data->player_angle));
+		new.y = data->player.y - (int)(8 * cos(data->player_angle));
 	}
-	print_new(data, new.x, new.y);
-	if (data->map[new.y / 64][new.x / 64] == '1')
+	if (data->map[new.y / 32][new.x / 32] == '1')
 		return (false);
 	return (true);
 }
@@ -67,23 +45,23 @@ void	move(t_data *data, int dir)
 {
 	if (dir == FORWARD)
 	{
-		data->player.y -= (int)(8 * sin(data->player_angle));
-		data->player.x -= (int)(8 * cos(data->player_angle));
+		data->player.y -= (int)(4 * sin(data->player_angle));
+		data->player.x -= (int)(4 * cos(data->player_angle));
 	}
 	if (dir == BACKWARD)
 	{
-		data->player.y += (int)(8 * sin(data->player_angle));
-		data->player.x += (int)(8 * cos(data->player_angle));
+		data->player.y += (int)(4 * sin(data->player_angle));
+		data->player.x += (int)(4 * cos(data->player_angle));
 	}
 	if (dir == LEFT)
 	{
-		data->player.y += (int)(8 * cos(data->player_angle));
-		data->player.x -= (int)(8 * sin(data->player_angle));
+		data->player.y += (int)(4 * cos(data->player_angle));
+		data->player.x -= (int)(4 * sin(data->player_angle));
 	}
 	if (dir == RIGHT)
 	{
-		data->player.y -= (int)(8 * cos(data->player_angle));
-		data->player.x += (int)(8 * sin(data->player_angle));
+		data->player.y -= (int)(4 * cos(data->player_angle));
+		data->player.x += (int)(4 * sin(data->player_angle));
 	}
 }
 
@@ -105,7 +83,6 @@ int	key_hook(int keycode, t_data *data)
 		close_mlx(data);
 	print_back(data);
 	print_ray(data);
-	//print_minimap(data);
-	mlx_put_image_to_window (data->mlx, data->win, data->img.img, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
 	return (0);
 }
