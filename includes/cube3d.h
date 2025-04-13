@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/26 18:00:46 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:46:23 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 // SCREEN SHIT
 
 # define SC_HEI 450
-# define SC_WID 800
+# define SC_WID 900
 
 // COLORS
 

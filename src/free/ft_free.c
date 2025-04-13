@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:17:13 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/26 16:37:52 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:59:50 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,16 @@ int	close_mlx(t_data *data)
 	if (data->win)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_image(data->mlx, data->no.img);
-		mlx_destroy_image(data->mlx, data->so.img);
-		mlx_destroy_image(data->mlx, data->we.img);
-		mlx_destroy_image(data->mlx, data->ea.img);
-		mlx_destroy_image(data->mlx, data->img.img);
+		if (data->no.img)
+			mlx_destroy_image(data->mlx, data->no.img);
+		if (data->so.img)
+			mlx_destroy_image(data->mlx, data->so.img);
+		if (data->we.img)
+			mlx_destroy_image(data->mlx, data->we.img);
+		if (data->ea.img)
+			mlx_destroy_image(data->mlx, data->ea.img);
+		if (data->img.img)
+			mlx_destroy_image(data->mlx, data->img.img);
 	}
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
@@ -58,10 +63,16 @@ int	close_mlx_error(t_data *data)
 	if (data->win)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_image(data->mlx, data->no.img);
-		mlx_destroy_image(data->mlx, data->so.img);
-		mlx_destroy_image(data->mlx, data->we.img);
-		mlx_destroy_image(data->mlx, data->ea.img);
+		if (data->no.img)
+			mlx_destroy_image(data->mlx, data->no.img);
+		if (data->so.img)
+			mlx_destroy_image(data->mlx, data->so.img);
+		if (data->we.img)
+			mlx_destroy_image(data->mlx, data->we.img);
+		if (data->ea.img)
+			mlx_destroy_image(data->mlx, data->ea.img);
+		if (data->img.img)
+			mlx_destroy_image(data->mlx, data->img.img);
 	}
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

@@ -21,7 +21,6 @@ SRC_FREE =		src/free/ft_free.c
 SRC_MLX_INIT = 	src/init_window/init_window.c
 
 SRC_RAYCAST = 	src/key_hook/key_hook.c \
-				src/print/print_minimap.c \
 				src/print/print_ray.c \
 				src/print/print_face.c \
 				src/print/my_pixel_put.c
