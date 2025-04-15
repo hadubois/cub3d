@@ -6,11 +6,11 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 17:59:40 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/03/26 18:03:08 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:01:00 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 bool	check_dir(t_data *data, int dir)
 {
@@ -71,13 +71,13 @@ int	key_hook(int keycode, t_data *data)
 		data->player_angle -= M_PI / 64;
 	if (keycode == 65363)
 		data->player_angle += M_PI / 64;
-	if (keycode == 122 && check_dir(data, FORWARD))
+	if (keycode == 119 && check_dir(data, FORWARD))
 		move(data, FORWARD);
 	if (keycode == 115 && check_dir(data, BACKWARD))
 		move(data, BACKWARD);
 	if (keycode == 100 && check_dir(data, RIGHT))
 		move(data, RIGHT);
-	if (keycode == 113 && check_dir(data, LEFT))
+	if (keycode == 97 && check_dir(data, LEFT))
 		move(data, LEFT);
 	if (keycode == 65307)
 		close_mlx(data);

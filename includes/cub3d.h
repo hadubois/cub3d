@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   cub3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/13 11:46:23 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:29:23 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 // INCLUDES ------------------------------------------------
 
@@ -37,20 +37,19 @@
 
 // ERROR MESSAGES
 
-# define WRONG_MAP_EXT printf("Error\ninvalid file: wrong map extension\n")
-# define WRONG_NUMBER_ARG printf("Error\nwrong number of arguments\n")
-# define ERROR_OPEN printf("Error\ninvalid file: the file does not exist\n")
-# define EMPTY_MAP_FILE printf("Error\ninvalid file: the map file is empty\n")
-# define ERROR_MALLOC printf("Error\na malloc failed\n")
-# define WRONG_IDENTIFIER printf("Error\ninvalid map: identifiers in the map are not valid\n")
-# define EMPTY_MAP printf("Error\ninvalid map: the map is empty\n")
-# define INVALID_CHAR printf("Error\ninvalid map: unexpected char in color\n")
-# define OUT_OF_SCALE_COLOR printf("Error\ninvalid map: color's value out of bound\n")
-# define INVALID_VALUES printf("Error\ninvalid map: unknown char in the map\n")
-# define MULTIPLE_START printf("Error\ninvalid map: multiple or no start points\n")
-# define INVALID_BORDERS printf("Error\ninvalid map: map isn't correctly closed\n")
-# define MLX_FAIL printf("Error\nmlx: an error occured during mlx initialization\n")
-# define MLX_IMG_FAIL printf("Error\nmlx: conversion to image failed\n")
+# define WRONG_MAP_EXT "Error\ninvalid file: wrong map extension\n"
+# define WRONG_NUMBER_ARG "Error\nwrong number of arguments\n"
+# define ERROR_OPEN "Error\ninvalid file: the file does not exist\n"
+# define EMPTY_MAP_FILE "Error\ninvalid file: the map file is empty\n"
+# define ERROR_MALLOC "Error\na malloc failed\n"
+# define WRONG_IDENTIFIER "Error\ninvalid map: id in the map are not valid\n"
+# define INVALID_ELT_ID "Error\ninvalid color: a color is not valid\n"
+# define EMPTY_MAP "Error\ninvalid map: the map is empty\n"
+# define INVALID_VALUES "Error\ninvalid map: unknown char in the map\n"
+# define MULTIPLE_START "Error\ninvalid map: multiple or no start points\n"
+# define INVALID_BORDERS "Error\ninvalid map: map isn't correctly closed\n"
+# define MLX_FAIL "Error\nmlx: an error occured during mlx initialization\n"
+# define MLX_IMG_FAIL "Error\nmlx: conversion to image failed\n"
 
 // SCREEN SHIT
 
@@ -106,6 +105,8 @@ typedef struct s_data
 	t_img	img;
 	int		f[3];
 	int		c[3];
+	bool	checker_f;
+	bool	checker_c;
 	int		floor;
 	int		ceiling;
 	char	**map;
@@ -127,6 +128,10 @@ bool		check_map_format(char *map_file);
 char		*open_map(char *map_file);
 bool		fill_data(char *map_content, t_data *data);
 bool		check_map(t_data *data);
+bool		check_split_map(char **map);
+char		*get_clean_path(char *messy_path);
+void		fill_keywords(char **map, t_data *data);
+bool		fill_rgb(char *line, int *array);
 
 // MLX INIT
 
@@ -152,9 +157,9 @@ int			key_hook(int keycode, t_data *data);
 void		print_ray(t_data *data);
 void		my_pixel_put(int x, int y, t_data *data, int color);
 void		print_back(t_data *data);
-void		print_line_east(t_data *data, t_ray ray, float r, t_img face);
-void		print_line_west(t_data *data, t_ray ray, float r, t_img face);
-void		print_line_north(t_data *data, t_ray ray, float r, t_img face);
-void		print_line_south(t_data *data, t_ray ray, float r, t_img face);
+void		print_line_east(t_data *data, t_ray ray, float r, float fov);
+void		print_line_west(t_data *data, t_ray ray, float r, float fov);
+void		print_line_north(t_data *data, t_ray ray, float r, float fov);
+void		print_line_south(t_data *data, t_ray ray, float r, float fov);
 
 #endif

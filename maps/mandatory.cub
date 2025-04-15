@@ -1,11 +1,14 @@
-NO ./img/exit.xpm
+C 225,30,225
+NO   ./img/exit.xpm
 SO ./img/player.xpm
-WE ./img/empty.xpm
+
+
+
+
+
+WE ./img/player.xpm
+F      225,50,10
 EA ./img/start.xpm
-F 220,100,10
-
-
-C 225,30,0
 
         111111 111111111111111111
         100001 100110000000000001

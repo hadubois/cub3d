@@ -6,11 +6,11 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:17:13 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/13 11:59:50 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:00:54 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 void	free_tab(void **tab)
 {

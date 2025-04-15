@@ -61,21 +61,21 @@ OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
 
 %.c%.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@ $(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	@ $(AR) $@ $^
 
 bonus: $(OBJS_B)
-	$(AR) $(NAME) $^
+	@ $(AR) $(NAME) $^
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	@ $(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
-	$(RM) $(NAME)
+	@ $(RM) $(NAME)
 
 re: clean all
 

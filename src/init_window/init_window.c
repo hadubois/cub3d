@@ -6,11 +6,11 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:40:10 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/13 12:04:51 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:34:55 by aule-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 void	init_img(t_data *data)
 {
@@ -45,13 +45,14 @@ bool	init_window(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (MLX_FAIL, false);
-	data->win = mlx_new_window(data->mlx, SC_WID, SC_HEI, "cube3d aule-bre");
+		return (printf(MLX_FAIL), false);
+	data->win = mlx_new_window(data->mlx, SC_WID, SC_HEI,
+			"cub3d aule-bre hadubois");
 	init_img(data);
 	init_texture(data);
 	if (!data->win)
-		return (MLX_FAIL, false);
+		return (printf(MLX_FAIL), false);
 	if (!data->no.img || !data->so.img || !data->ea.img || !data->we.img)
-		return (MLX_IMG_FAIL, false);
+		return (printf(MLX_IMG_FAIL), false);
 	return (true);
 }

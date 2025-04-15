@@ -6,7 +6,7 @@
 #    By: asritz <asritz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:18:52 by asritz            #+#    #+#              #
-#    Updated: 2024/09/14 19:06:34 by asritz           ###   ########.fr        #
+#    Updated: 2025/04/15 11:55:32 by hadubois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,16 +35,16 @@ AR = ar rcs
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) $@ $^
+	@ $(AR) $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $<
+	@ $(CC) $(CFLAGS) -c $<
 
 clean :
-	$(RM) $(OBJ)
+	@ $(RM) $(OBJ)
 
 fclean : clean
-	$(RM) $(NAME)
+	@ $(RM) $(NAME)
 
 re : fclean all
 
