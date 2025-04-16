@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:12:57 by hadubois          #+#    #+#             */
-/*   Updated: 2025/04/15 16:02:21 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:18:54 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	fill_keywords(char **map, t_data *data)
 		else if (ft_strncmp(*map, "EA ", 3) == 0)
 			data->ea.path = get_clean_path(*map);
 		else if (ft_strncmp(*map, "F ", 2) == 0)
-			data->checker_f = fill_rgb((*map) + 2, data->f);
+			data->checker_f = fill_rgb((*map) + 2, data->c);
 		else if (ft_strncmp(*map, "C ", 2) == 0)
-			data->checker_c = fill_rgb((*map) + 2, data->c);
+			data->checker_c = fill_rgb((*map) + 2, data->f);
 		map++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:17:13 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 11:00:54 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:37:32 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	close_mlx_error(t_data *data)
 		if (data->img.img)
 			mlx_destroy_image(data->mlx, data->img.img);
 	}
-	mlx_destroy_display(data->mlx);
+	if (data->mlx)
+		mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free_data(data);
 	exit(1);
