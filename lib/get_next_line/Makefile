@@ -6,7 +6,7 @@
 #    By: asritz <asritz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/16 17:49:39 by asritz            #+#    #+#              #
-#    Updated: 2025/04/15 11:56:18 by hadubois         ###   ########.fr        #
+#    Updated: 2025/04/16 11:44:08 by hadubois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,4 +42,3 @@ fclean : clean
 re : fclean all
 
 .PHONY :  all clean fclean bonus re
-

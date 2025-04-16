@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:47 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 15:49:36 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:26:13 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ char	*get_map(int fd)
 
 	line = gnl_no_newline(fd);
 	if (!line)
-		return (close(fd), printf(EMPTY_MAP_FILE), NULL);
+		return (close(fd), printf(ERROR EMPTY_MAP_FILE), NULL);
 	map_content = NULL;
 	while (line)
 	{
 		new_map_content = ft_strjoin(map_content, line);
 		free(map_content);
 		if (!new_map_content)
-			return (close(fd), printf(ERROR_MALLOC), NULL);
+			return (close(fd), printf(ERROR ERROR_MALLOC), NULL);
 		map_content = new_map_content;
 		free(line);
 		line = gnl_no_newline(fd);
@@ -59,7 +59,7 @@ char	*open_map(char *map_file)
 
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-		return (printf(ERROR_OPEN), NULL);
+		return (printf(ERROR ERROR_OPEN), NULL);
 	return (get_map(fd));
 }
 

@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:39 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 15:55:16 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:21:30 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ bool	fill_map(char *map_content, t_data *data)
 
 	map = ft_split(map_content, '\n');
 	if (!map)
-		return (printf(ERROR_MALLOC), false);
+		return (printf(ERROR ERROR_MALLOC), false);
 	i = 5;
 	map_tab = malloc((tab_len(map) + 1) * sizeof(char *));
 	if (!map_tab)
-		return (free_tab((void **)map), printf(ERROR_MALLOC), false);
+		return (free_tab((void **)map), printf(ERROR ERROR_MALLOC), false);
 	while (map[++i])
 		map_tab[i - 6] = ft_strdup(map[i]);
 	map_tab[i - 6] = NULL;
@@ -78,13 +78,13 @@ bool	fill_identifiers(char *map_content, t_data *data)
 
 	map = ft_split(map_content, '\n');
 	if (!check_split_map(map))
-		return (printf(ERROR_MALLOC), false);
+		return (printf(ERROR ERROR_MALLOC), false);
 	fill_keywords(map, data);
 	free_tab((void **)map);
 	if (!data->no.path || !data->so.path || !data->we.path || !data->ea.path)
-		return (printf(WRONG_IDENTIFIER), false);
+		return (printf(ERROR WRONG_IDENTIFIER), false);
 	else if (!data->checker_f || !data->checker_c)
-		return (printf(INVALID_ELT_ID), false);
+		return (printf(ERROR INVALID_ELT_ID), false);
 	return (true);
 }
 
@@ -93,7 +93,7 @@ bool	fill_data(char *map_content, t_data *data)
 	if (fill_identifiers(map_content, data) == false)
 		return (free(map_content), false);
 	if (fill_map(map_content, data) == false)
-		return (free(map_content), printf(EMPTY_MAP), false);
+		return (free(map_content), printf(ERROR EMPTY_MAP), false);
 	data->floor = (data->f[0] << 16) | (data->f[1] << 8) | data->f[2];
 	data->ceiling = (data->c[0] << 16) | (data->c[1] << 8) | data->c[2];
 	return (free(map_content), true);

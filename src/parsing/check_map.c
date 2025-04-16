@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:15 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 11:01:10 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:24:48 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	check_values(char **map, t_data *data)
 		while (map[i][++j])
 		{
 			if (!ft_strrchr(" 01NSEW", map[i][j]))
-				return (printf(INVALID_VALUES), false);
+				return (printf(ERROR INVALID_VALUES), false);
 			if (ft_strrchr("NSEW", map[i][j]))
 			{
 				init_player(data, i, j);
@@ -50,7 +50,7 @@ bool	check_values(char **map, t_data *data)
 	}
 	if (start == 1)
 		return (true);
-	return (printf(MULTIPLE_START), false);
+	return (printf(ERROR MULTIPLE_START), false);
 }
 
 bool	check_around(char **map, int i, int j)
@@ -62,7 +62,7 @@ bool	check_around(char **map, int i, int j)
 		len++;
 	if (i == 0 || i == len)
 		return (false);
-	if (j == 0 | map[i][j + 1] == '\0')
+	if (j == 0 || map[i][j + 1] == '\0')
 		return (false);
 	if (map[i - 1][j] == ' ' || map[i + 1][j] == ' ' || map[i][j - 1] == ' '
 		|| map[i][j + 1] == ' ')
@@ -105,6 +105,6 @@ bool	check_map(t_data *data)
 	if (check_values(data->map, data) == false)
 		return (false);
 	if (check_borders(data->map, data) == false)
-		return (printf(INVALID_BORDERS), false);
+		return (printf(ERROR INVALID_BORDERS), false);
 	return (true);
 }

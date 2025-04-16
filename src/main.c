@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:17:02 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 11:00:52 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:23:38 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac != 2)
-		return (printf(WRONG_NUMBER_ARG), 1);
+		return (printf(ERROR WRONG_NUMBER_ARG), 1);
 	ft_memset(&data, 0, sizeof(t_data));
 	if (parse(av[1], &data) == false)
 		return (1);

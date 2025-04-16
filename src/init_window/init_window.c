@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:40:10 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/15 11:34:55 by aule-bre         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:25:44 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ bool	init_window(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
-		return (printf(MLX_FAIL), false);
+		return (printf(ERROR MLX_FAIL), false);
 	data->win = mlx_new_window(data->mlx, SC_WID, SC_HEI,
 			"cub3d aule-bre hadubois");
 	init_img(data);
 	init_texture(data);
 	if (!data->win)
-		return (printf(MLX_FAIL), false);
+		return (printf(ERROR MLX_FAIL), false);
 	if (!data->no.img || !data->so.img || !data->ea.img || !data->we.img)
-		return (printf(MLX_IMG_FAIL), false);
+		return (printf(ERROR MLX_IMG_FAIL), false);
 	return (true);
 }
