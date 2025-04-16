@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:47 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/16 12:26:13 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:18:47 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,51 @@ char	*get_map(int fd)
 	return (map_content);
 }
 
+char	*xget_map(int fd)
+{
+	int		nb_elt;
+	char	*line;
+	char	*res;
+	char	*tmp;
+
+	res = NULL;
+	nb_elt = 0;
+	line = get_next_line(fd);
+	if (!line)
+		return (close(fd), printf(ERROR EMPTY_MAP_FILE), NULL);
+	while(line && nb_elt < 6)
+	{
+		if (ft_strncmp(line, "\n", 2) != 0)
+		{
+				tmp = line;
+				line = ft_strtrim(line, " ");
+				free(tmp);
+				tmp = res;
+				res = ft_strjoin(res, line);
+				free(tmp);
+				nb_elt++;
+		}
+		free(line);
+		line = get_next_line(fd);
+	}
+	while (line && ft_strncmp(line, "\n", 2) == 0)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	while (line)
+	{
+		tmp = res;
+		res = ft_strjoin(res, line);
+		free(tmp);
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	close(fd);
+	return (res);
+}
+
 char	*open_map(char *map_file)
 {
 	int	fd;
@@ -60,7 +105,7 @@ char	*open_map(char *map_file)
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 		return (printf(ERROR ERROR_OPEN), NULL);
-	return (get_map(fd));
+	return (xget_map(fd));
 }
 
 bool	check_map_format(char *map_file)
