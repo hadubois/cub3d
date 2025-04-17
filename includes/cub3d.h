@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/17 09:59:08 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:37:40 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@
 // ERROR MESSAGES
 
 # define ERROR				"\033[1m\033[7m\033[31mError\n\033[0m┗━ "
+# define EELT				"Bad configuration: invalid element\n"
+# define EEXTRACT			"Extraction of an element fail\n"
+# define ERROR_MALLOC		"A malloc failed\n"
 # define WRONG_MAP_EXT		"Invalid file: wrong map extension\n"
 # define WRONG_NUMBER_ARG	"Wrong number of arguments\n"
 # define ERROR_OPEN			"Invalid file: the file does not exist\n"
 # define EMPTY_MAP_FILE		"Invalid file: the map file is empty\n"
-# define ERROR_MALLOC		"A malloc failed\n"
-# define WRONG_IDENTIFIER	"Invalid map: id in the map are not valid\n"
 # define INVALID_ELT_ID		"Invalid color: a color is not valid\n"
+# define WRONG_IDENTIFIER	"Invalid map: id in the map are not valid\n"
 # define EMPTY_MAP			"Invalid map: the map is empty\n"
 # define INVALID_VALUES		"Invalid map: unknown char in the map\n"
 # define MULTIPLE_START		"Invalid map: multiple or no start points\n"
@@ -143,7 +145,11 @@ char		*get_clean_path(char *messy_path);
 void		fill_keywords(char **map, t_data *data);
 bool		fill_rgb(char *line, int *array);
 bool		find_str(const char *big, const char *little);
+<<<<<<< HEAD
 char		*check_and_get_elts(int fd);
+=======
+char		*get_file_content(int fd);
+>>>>>>> 7f36821 (update: parsing: try to handle nl in map)
 
 // MLX INIT
 
