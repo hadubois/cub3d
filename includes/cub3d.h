@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/17 08:22:29 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/17 09:59:08 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ char		*get_clean_path(char *messy_path);
 void		fill_keywords(char **map, t_data *data);
 bool		fill_rgb(char *line, int *array);
 bool		find_str(const char *big, const char *little);
+char		*check_and_get_elts(int fd);
 
 // MLX INIT
 

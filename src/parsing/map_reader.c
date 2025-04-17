@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:47 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/17 08:42:16 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:41:17 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,44 @@ char	*get_map(int fd)
 	return (map_content);
 }
 
-char	*xget_map(int fd)
+char	*skip_nl(int fd)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	while (line && ft_strncmp(line, "\n", 2) == 0)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (line);
+}
+
+/*
+char	*xxget_map(int fd)
+{
+	while (line && ft_strncmp(line, "\n", 2) == 0)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	while (line)
+	{
+		tmp = res;
+		res = ft_strjoin(res, line);
+		free(tmp);
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	close(fd);
+	if (find_str(res, "\n\n"))
+		return (printf(ERROR INVALID_BORDERS), free(res), NULL);
+	return (res);
+}
+*/
+
+char	*get_elements(int fd)
 {
 	int		nb_elt;
 	char	*line;
@@ -76,27 +113,23 @@ char	*xget_map(int fd)
 				res = ft_strjoin(res, line);
 				free(tmp);
 				nb_elt++;
-		}
-		free(line);
-		line = get_next_line(fd);
-	}
-	while (line && ft_strncmp(line, "\n", 2) == 0)
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	while (line)
-	{
-		tmp = res;
-		res = ft_strjoin(res, line);
-		free(tmp);
-		free(line);
-		line = get_next_line(fd);
-	}
-	free(line);
-	close(fd);
-	if (find_str(res, "\n\n"))
-		return (printf(ERROR INVALID_BORDERS), free(res), NULL);
+		} free(line); if (nb_elt < 6) line = get_next_line(fd); }
+	return (res);
+}
+
+char	*check_and_get_elts(int fd)
+{
+	char	*res;
+
+	res = get_elements(fd);
+	if (res)
+		printf(C"[%s]\n"RST, res);
+	res = get_next_line(fd);
+	res = ft_strjoin(res, skip_nl(fd));
+	if (res)
+		printf(Y"[%s]"RST, res);
+//	res = get_the_map()
+	close (fd);
 	return (res);
 }
 
@@ -107,7 +140,7 @@ char	*open_map(char *map_file)
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 		return (printf(ERROR ERROR_OPEN), NULL);
-	return (xget_map(fd));
+	return (check_and_get_elts(fd));
 }
 
 bool	check_map_format(char *map_file)
