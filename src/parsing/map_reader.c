@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:47 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/16 18:18:47 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/17 08:42:16 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ char	*xget_map(int fd)
 	}
 	free(line);
 	close(fd);
+	if (find_str(res, "\n\n"))
+		return (printf(ERROR INVALID_BORDERS), free(res), NULL);
 	return (res);
 }
 

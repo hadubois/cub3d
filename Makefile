@@ -61,7 +61,7 @@ FORCE:
 
 -include $(OBJ:.o=.d)
 
-$(NAME): lib $(OBJ)
+$(NAME): lib $(OBJ) todo
 	@ make -s -C mlx
 	@ cp mlx/libmlx.a ./
 	@ cp mlx/libmlx_Linux.a ./
@@ -88,4 +88,4 @@ fclean: clean
 re: fclean todo all
 
 # =============================[ PHONY TARGETS ]============================== #
-.PHONY: all clean fclean re todo
+.PHONY: all clean fclean re

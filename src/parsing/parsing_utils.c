@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:12:57 by hadubois          #+#    #+#             */
-/*   Updated: 2025/04/16 17:28:42 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/17 08:27:31 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,32 @@ void	fill_keywords(char **map, t_data *data)
 			data->checker_c = fill_rgb((*map) + 2, data->f);
 		map++;
 	}
+}
+
+bool	find_str(const char *big, const char *little)
+{
+	int	i;
+	int	j;
+
+	if (!big || !little)
+		return (false);
+	if (*little == 0)
+	{
+		printf("check O.K\n");
+		return (true);
+	}
+	i = 0;
+	while (big[i])
+	{
+		j = 0;
+		if (big[i] == little[0])
+		{
+			while (big[i + j] == little[j] && little[j])
+				j++;
+			if (!little[j])
+				return (true);
+		}
+		i++;
+	}
+	return (false);
 }
