@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/18 19:42:10 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/18 14:37:01 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,23 +135,6 @@ typedef struct s_data
 
 // PARSING
 
-<<<<<<< HEAD
-bool		parse(char *map_file, t_data *data);
-bool		check_map_format(char *map_file);
-char		*open_map(char *map_file);
-bool		fill_data(char *map_content, t_data *data);
-bool		check_map(t_data *data);
-bool		check_split_map(char **map);
-char		*get_clean_path(char *messy_path);
-void		fill_keywords(char **map, t_data *data);
-bool		fill_rgb(char *line, int *array);
-bool		find_str(const char *big, const char *little);
-<<<<<<< HEAD
-char		*check_and_get_elts(int fd);
-=======
-char		*get_file_content(int fd);
->>>>>>> 7f36821 (update: parsing: try to handle nl in map)
-=======
 bool	parse(char *map_file, t_data *data);
 bool	fill_data(char *map_content, t_data *data);
 bool	check_map(t_data *data);
@@ -161,7 +144,6 @@ void	fill_keywords(char **map, t_data *data);
 bool	fill_rgb(char *line, int *array);
 bool	find_str(const char *big, const char *little);
 char	*get_file_content(int fd);
->>>>>>> ced1d72 (Update: refactorisation parsing + map)
 
 // MLX INIT
 
