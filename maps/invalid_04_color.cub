@@ -1,10 +1,10 @@
-NO ./img/coll.xpm
-SO ./img/empty.xpm
-WE ./img/player.xpm
-EA ./img/start.xpm
+NO ./img/wall_brick.xpm
+SO ./img/wall_wood.xpm
+WE ./img/wall_stone_01.xpm
+EA ./img/wall_stone_02.xpm
 
 F 220,100,0
-C xxx,30,0
+C 225,30,0xx
 
         1111111111111111111111111
         1000000000110000000000001

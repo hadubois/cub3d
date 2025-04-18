@@ -5,15 +5,15 @@ C 173,216,230
 
 
 
-EA ./img/coll.xpm
-                 SO ./img/empty.xpm
-WE                                 ./img/player.xpm
+EA ./img/wall_stone_02.xpm
+                 SO ./img/wall_wood.xpm
+WE                                 ./img/wall_stone_01.xpm
 
 
 
 
-NO ./img/coll.xpm                                                               
-F 220,174,150
+NO ./img/wall_brick.xpm                                                        
+F 109,94,81
 
 
 

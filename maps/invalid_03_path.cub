@@ -1,6 +1,6 @@
-NO ./img/coll.xpm
-SO ./img/empty.xpm
-WE ./img/player.xpm
+NO ./img/wall_brick.xpm
+SO ./img/wall_wood.xpm
+WE ./img/wall_stone_01.xpm
 EA ./path_to_the_east_texture
 
 F 220,100,0

@@ -1,7 +1,7 @@
-NO ./img/coll.xpm
-SO ./img/empty.xpm
-WE ./img/player.xpm
-EA ./img/start.xpm
+NO ./img/wall_brick.xpm
+SO ./img/wall_wood_I.xpm
+WE ./img/wall_stone.xpm
+EA ./img/wall_stone_IV.xpm
 
 F 220,100,0
 C 225,30,0
