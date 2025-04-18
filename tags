@@ -253,13 +253,12 @@ bpp4	mlx/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
 c	includes/cub3d.h	/^	int		c[3];$/;"	m	struct:s_data	typeref:typename:int[3]
 ceiling	includes/cub3d.h	/^	int		ceiling;$/;"	m	struct:s_data	typeref:typename:int
 check	mlx/Makefile.mk	/^check: all$/;"	t
-check_and_get_elts	src/parsing/map_reader.c	/^char	*check_and_get_elts(int fd)$/;"	f	typeref:typename:char *
 check_around	src/parsing/check_map.c	/^bool	check_around(char **map, int i, int j)$/;"	f	typeref:typename:bool
 check_borders	src/parsing/check_map.c	/^bool	check_borders(char **map, t_data *data)$/;"	f	typeref:typename:bool
 check_dir	src/key_hook/key_hook.c	/^bool	check_dir(t_data *data, int dir)$/;"	f	typeref:typename:bool
 check_map	src/parsing/check_map.c	/^bool	check_map(t_data *data)$/;"	f	typeref:typename:bool
-check_map_format	src/parsing/map_reader.c	/^bool	check_map_format(char *map_file)$/;"	f	typeref:typename:bool
-check_split_map	src/parsing/parsing_utils.c	/^bool	check_split_map(char **map)$/;"	f	typeref:typename:bool
+check_map_format	src/parsing/parse.c	/^static bool	check_map_format(char *map_file)$/;"	f	typeref:typename:bool	file:
+check_split_map	src/parsing/fill_data_utils.c	/^bool	check_split_map(char **map)$/;"	f	typeref:typename:bool
 check_values	src/parsing/check_map.c	/^bool	check_values(char **map, t_data *data)$/;"	f	typeref:typename:bool
 checker_c	includes/cub3d.h	/^	bool	checker_c;$/;"	m	struct:s_data	typeref:typename:bool
 checker_f	includes/cub3d.h	/^	bool	checker_f;$/;"	m	struct:s_data	typeref:typename:bool
@@ -301,8 +300,8 @@ expose_hook	mlx/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	t
 expose_param	mlx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
 expose_win1	mlx/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
 expose_win2	mlx/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
-extract_elements	src/parsing/map_reader.c	/^char	*extract_elements(int fd)$/;"	f	typeref:typename:char *
-extract_map	src/parsing/map_reader.c	/^char	*extract_map(int fd)$/;"	f	typeref:typename:char *
+extract_elements	src/parsing/extract_elements.c	/^static char	*extract_elements(int fd, char *res)$/;"	f	typeref:typename:char *	file:
+extract_map	src/parsing/extract_elements.c	/^static char	*extract_map(int fd)$/;"	f	typeref:typename:char *	file:
 f	includes/cub3d.h	/^	int		f[3];$/;"	m	struct:s_data	typeref:typename:int[3]
 fclean	Makefile	/^fclean: clean$/;"	t
 fclean	lib/Printf/Makefile	/^fclean : clean$/;"	t
@@ -310,10 +309,10 @@ fclean	lib/get_next_line/Makefile	/^fclean : clean$/;"	t
 fclean	lib/libft/Makefile	/^fclean: clean$/;"	t
 fill_data	src/parsing/fill_data.c	/^bool	fill_data(char *map_content, t_data *data)$/;"	f	typeref:typename:bool
 fill_identifiers	src/parsing/fill_data.c	/^bool	fill_identifiers(char *map_content, t_data *data)$/;"	f	typeref:typename:bool
-fill_keywords	src/parsing/parsing_utils.c	/^void	fill_keywords(char **map, t_data *data)$/;"	f	typeref:typename:void
+fill_keywords	src/parsing/fill_data_utils.c	/^void	fill_keywords(char **map, t_data *data)$/;"	f	typeref:typename:void
 fill_map	src/parsing/fill_data.c	/^bool	fill_map(char *map_content, t_data *data)$/;"	f	typeref:typename:bool
 fill_rgb	src/parsing/fill_data.c	/^bool	fill_rgb(char *line, int *array)$/;"	f	typeref:typename:bool
-find_str	src/parsing/parsing_utils.c	/^bool	find_str(const char *big, const char *little)$/;"	f	typeref:typename:bool
+find_str	src/parsing/fill_data_utils.c	/^bool	find_str(const char *big, const char *little)$/;"	f	typeref:typename:bool
 floor	includes/cub3d.h	/^	int		floor;$/;"	m	struct:s_data	typeref:typename:int
 format	mlx/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
 free_data	src/free/ft_free.c	/^void	free_data(t_data *data)$/;"	f	typeref:typename:void
@@ -372,7 +371,7 @@ ft_size	lib/libft/ft_itoa.c	/^int	ft_size(int n)$/;"	f	typeref:typename:int
 ft_split	lib/libft/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
 ft_strchr	lib/libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
 ft_strchr_gnl	lib/get_next_line/get_next_line_utils.c	/^int	ft_strchr_gnl(const char *s, int c)$/;"	f	typeref:typename:int
-ft_strcmp	src/parsing/map_reader.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f	typeref:typename:int
+ft_strcmp	src/utils/ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/;"	f	typeref:typename:int
 ft_strdup	lib/libft/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f	typeref:typename:char *
 ft_striteri	lib/libft/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f	typeref:typename:void
 ft_strjoin	lib/libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *
@@ -395,20 +394,17 @@ ft_toupper	lib/libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename
 gc	mlx/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
 gc	mlx/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
 gere_mouse	mlx/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
-get_clean_path	src/parsing/parsing_utils.c	/^char	*get_clean_path(char *messy_path)$/;"	f	typeref:typename:char *
+get_clean_path	src/parsing/fill_data_utils.c	/^char	*get_clean_path(char *messy_path)$/;"	f	typeref:typename:char *
 get_color	src/print/print_face.c	/^unsigned int	get_color(int x, int y, t_img img)$/;"	f	typeref:typename:unsigned int
-get_elements	src/parsing/map_reader.c	/^char	*get_elements(int fd)$/;"	f	typeref:typename:char *
-get_file_content	src/parsing/map_reader.c	/^char	*get_file_content(int fd)$/;"	f	typeref:typename:char *
-get_map	src/parsing/map_reader.c	/^char	*get_map(int fd)$/;"	f	typeref:typename:char *
+get_file_content	src/parsing/extract_elements.c	/^char	*get_file_content(int fd)$/;"	f	typeref:typename:char *
 get_next_line	lib/get_next_line/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *
 get_xlib_include_path	mlx/configure	/^get_xlib_include_path(){$/;"	f
-gnl_no_newline	src/parsing/map_reader.c	/^char	*gnl_no_newline(int fd)$/;"	f	typeref:typename:char *
 height	includes/cub3d.h	/^	int		height;$/;"	m	struct:s_data	typeref:typename:int
 height	mlx/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
 hook	mlx/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
 hooks	mlx/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
 i	includes/cub3d.h	/^	int		i;$/;"	m	struct:s_ray	typeref:typename:int
-ignore_nl_from_bottom_and_find_str	src/parsing/map_reader.c	/^bool	ignore_nl_from_bottom_and_find_str(char *big, char *little)$/;"	f	typeref:typename:bool
+ignore_nl_from_bottom_and_find_str	src/parsing/extract_elements.c	/^static bool	ignore_nl_from_bottom_and_find_str(char *big, char *little)$/;"	f	typeref:typename:bool	file:
 im1	mlx/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
 im2	mlx/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
 im3	mlx/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
@@ -530,7 +526,7 @@ ncpy	lib/libft/ft_split.c	/^void	ncpy(char *dest, const char *src, int n)$/;"	f	
 next	lib/libft/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
 next	mlx/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
 no	includes/cub3d.h	/^	t_img	no;$/;"	m	struct:s_data	typeref:typename:t_img
-open_map	src/parsing/map_reader.c	/^char	*open_map(char *map_file)$/;"	f	typeref:typename:char *
+open_map	src/parsing/parse.c	/^static int	open_map(char *map_file)$/;"	f	typeref:typename:int	file:
 param	mlx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
 parse	src/parsing/parse.c	/^bool	parse(char *map_file, t_data *data)$/;"	f	typeref:typename:bool
 parse_args	mlx/configure	/^parse_args(){$/;"	f
@@ -580,12 +576,13 @@ sigint_handler	mlx/test/run_tests.sh	/^sigint_handler(){$/;"	f
 single_ray	src/print/print_ray.c	/^float	single_ray(t_data *data, t_ray *ray, float fov)$/;"	f	typeref:typename:float
 size_line	includes/cub3d.h	/^	int		size_line;$/;"	m	struct:s_img	typeref:typename:int
 size_line	mlx/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img	typeref:typename:int
-skip_nl	src/parsing/map_reader.c	/^char	*skip_nl(int fd)$/;"	f	typeref:typename:char *
+skip_nl	src/parsing/extract_elements.c	/^static char	*skip_nl(int fd)$/;"	f	typeref:typename:char *	file:
 sl1	mlx/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
 sl2	mlx/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
 sl3	mlx/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
 sl4	mlx/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
 so	includes/cub3d.h	/^	t_img	so;$/;"	m	struct:s_data	typeref:typename:t_img
+strjoin_wrapper	src/parsing/fill_data_utils.c	/^char	*strjoin_wrapper(char *s1, char *s2)$/;"	f	typeref:typename:char *
 strlcpy_is_not_posix	mlx/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
 t_coo	includes/cub3d.h	/^}			t_coo;$/;"	t	typeref:struct:s_coo
 t_data	includes/cub3d.h	/^}			t_data;$/;"	t	typeref:struct:s_data

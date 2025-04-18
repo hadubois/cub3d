@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/18 19:37:40 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:42:10 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ typedef struct s_data
 
 // PARSING
 
+<<<<<<< HEAD
 bool		parse(char *map_file, t_data *data);
 bool		check_map_format(char *map_file);
 char		*open_map(char *map_file);
@@ -150,34 +151,50 @@ char		*check_and_get_elts(int fd);
 =======
 char		*get_file_content(int fd);
 >>>>>>> 7f36821 (update: parsing: try to handle nl in map)
+=======
+bool	parse(char *map_file, t_data *data);
+bool	fill_data(char *map_content, t_data *data);
+bool	check_map(t_data *data);
+bool	check_split_map(char **map);
+char	*get_clean_path(char *messy_path);
+void	fill_keywords(char **map, t_data *data);
+bool	fill_rgb(char *line, int *array);
+bool	find_str(const char *big, const char *little);
+char	*get_file_content(int fd);
+>>>>>>> ced1d72 (Update: refactorisation parsing + map)
 
 // MLX INIT
 
-bool		init_window(t_data *data);
+bool	init_window(t_data *data);
 
 // FREE
 
-void		free_tab(void **tab);
-void		free_data(t_data *data);
-int			close_mlx(t_data *data);
-int			close_mlx_error(t_data *data);
+void	free_tab(void **tab);
+void	free_data(t_data *data);
+int		close_mlx(t_data *data);
+int		close_mlx_error(t_data *data);
 
 // TMP
 
-void		print_minimap(t_data *data);
+void	print_minimap(t_data *data);
 
 // KEY HOOKS
 
-int			key_hook(int keycode, t_data *data);
+int		key_hook(int keycode, t_data *data);
 
 // RAYCAST
 
-void		print_ray(t_data *data);
-void		my_pixel_put(int x, int y, t_data *data, int color);
-void		print_back(t_data *data);
-void		print_line_east(t_data *data, t_ray ray, float r, float fov);
-void		print_line_west(t_data *data, t_ray ray, float r, float fov);
-void		print_line_north(t_data *data, t_ray ray, float r, float fov);
-void		print_line_south(t_data *data, t_ray ray, float r, float fov);
+void	print_ray(t_data *data);
+void	my_pixel_put(int x, int y, t_data *data, int color);
+void	print_back(t_data *data);
+void	print_line_east(t_data *data, t_ray ray, float r, float fov);
+void	print_line_west(t_data *data, t_ray ray, float r, float fov);
+void	print_line_north(t_data *data, t_ray ray, float r, float fov);
+void	print_line_south(t_data *data, t_ray ray, float r, float fov);
+
+// UTILS
+
+char	*strjoin_wrapper(char *s1, char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

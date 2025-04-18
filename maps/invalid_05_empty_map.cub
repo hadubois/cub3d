@@ -2,11 +2,6 @@ NO ./img/coll.xpm
 SO ./img/empty.xpm
 WE ./img/player.xpm
 EA ./img/start.xpm
-F 220,100,10
-C 225,30,0
 
-
-1111111111
-1111111111
-11111E1111
-1111111111
+C 220,100,0
+F 225,30,0

@@ -6,11 +6,22 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:12:57 by hadubois          #+#    #+#             */
-/*   Updated: 2025/04/17 08:27:31 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/18 14:25:22 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+char	*strjoin_wrapper(char *s1, char *s2)
+{
+	char	*tmp;
+
+	tmp = ft_strjoin(s1, s2);
+	free(s1);
+	if (!tmp)
+		return (NULL);
+	return (tmp);
+}
 
 bool	check_split_map(char **map)
 {

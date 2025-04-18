@@ -15,10 +15,10 @@ LIB = lib/libft/libft.a lib/get_next_line/lib_get_next_line.a
 SRC_MAIN = 		src/main.c
 
 SRC_PARSING =	src/parsing/parse.c \
-				src/parsing/map_reader.c \
-				src/parsing/fill_data.c \
 				src/parsing/check_map.c \
-				src/parsing/parsing_utils.c
+				src/parsing/extract_elements.c \
+				src/parsing/fill_data.c \
+				src/parsing/fill_data_utils.c
 
 SRC_FREE =		src/free/ft_free.c 
 
