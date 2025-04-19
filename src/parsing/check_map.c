@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:15 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/16 12:24:48 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/19 11:06:00 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	check_values(char **map, t_data *data)
 		while (map[i][++j])
 		{
 			if (!ft_strrchr(" 01NSEW", map[i][j]))
-				return (printf(ERROR INVALID_VALUES), false);
+				return (printf(ERROR L _INVALID_CHAR_IN_MAP), false);
 			if (ft_strrchr("NSEW", map[i][j]))
 			{
 				init_player(data, i, j);
@@ -50,7 +50,7 @@ bool	check_values(char **map, t_data *data)
 	}
 	if (start == 1)
 		return (true);
-	return (printf(ERROR MULTIPLE_START), false);
+	return (printf(ERROR L MULTIPLE_START), false);
 }
 
 bool	check_around(char **map, int i, int j)
@@ -105,6 +105,6 @@ bool	check_map(t_data *data)
 	if (check_values(data->map, data) == false)
 		return (false);
 	if (check_borders(data->map, data) == false)
-		return (printf(ERROR INVALID_BORDERS), false);
+		return (printf(ERROR L _MAP_NOT_CLOSED), false);
 	return (true);
 }

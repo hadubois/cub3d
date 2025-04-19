@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 14:40:10 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/18 12:37:37 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/19 11:09:44 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ bool	init_window(t_data *data)
 	if (!data->win)
 		return (printf(ERROR MLX_FAIL), false);
 	if (!data->no.img || !data->so.img || !data->ea.img || !data->we.img)
-		return (printf(ERROR MLX_IMG_FAIL), false);
+		return (printf(ERROR L MLX_IMG_FAIL), false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/18 14:37:01 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/19 11:12:53 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <errno.h>
+# include <string.h>
 
 // ALIASES ------------------------------------------------
 
@@ -37,22 +39,22 @@
 
 // ERROR MESSAGES
 
-# define ERROR				"\033[1m\033[7m\033[31mError\n\033[0m┗━ "
-# define EELT				"Bad configuration: invalid element\n"
-# define EEXTRACT			"Extraction of an element fail\n"
-# define ERROR_MALLOC		"A malloc failed\n"
-# define WRONG_MAP_EXT		"Invalid file: wrong map extension\n"
+# define ERROR					"\033[1m\033[7m\033[31mError\n\033[0m"
+# define L						" ┗━ "
+# define T						"┗┳━ "
+# define _EMPTY_FILE			"File is empty\n"
+# define _EMPTY_MAP				"Map is empty\n"
+# define _INVALID_CHAR_IN_MAP	"Invalid character in map\n"
+# define _INVALID_EXTENSION		"Invalid file extension\n"
+# define _MAP_NOT_CLOSED		"Map is not correctly closed\n"
+# define _SYNTAX				"Syntax error\n"
+# define _TOO_MANY_ARGS 		"Too many arguments\n"
+# define _FATAL					"Fatal\n"
+# define ERROR_MALLOC		"Memory allocation failed\n"
 # define WRONG_NUMBER_ARG	"Wrong number of arguments\n"
-# define ERROR_OPEN			"Invalid file: the file does not exist\n"
-# define EMPTY_MAP_FILE		"Invalid file: the map file is empty\n"
-# define INVALID_ELT_ID		"Invalid color: a color is not valid\n"
-# define WRONG_IDENTIFIER	"Invalid map: id in the map are not valid\n"
-# define EMPTY_MAP			"Invalid map: the map is empty\n"
-# define INVALID_VALUES		"Invalid map: unknown char in the map\n"
-# define MULTIPLE_START		"Invalid map: multiple or no start points\n"
-# define INVALID_BORDERS	"Invalid map: map isn't correctly closed\n"
 # define MLX_FAIL			"Mlx: an error occured during mlx initialization\n"
 # define MLX_IMG_FAIL		"Mlx: conversion to image failed\n"
+# define MULTIPLE_START		"Invalid map: multiple or no start points\n"
 
 // SCREEN SHIT
 

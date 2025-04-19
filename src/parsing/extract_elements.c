@@ -6,7 +6,7 @@
 /*   By: hadubois <hadubois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 14:16:45 by hadubois          #+#    #+#             */
-/*   Updated: 2025/04/18 14:21:34 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/19 11:56:18 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*extract_elements(int fd, char *res)
 	nb_elt = 0;
 	line = get_next_line(fd);
 	if (!line)
-		return (printf(ERROR EELT), NULL);
+		return (printf(ERROR T _FATAL), NULL);
 	while (line && nb_elt < 6)
 	{
 		if (ft_strncmp(line, "\n", 2) != 0)
@@ -61,12 +61,12 @@ static char	*extract_map(int fd)
 	map = NULL;
 	line = get_next_line(fd);
 	if (!line)
-		return (printf(ERROR EEXTRACT), NULL);
+		return (NULL);
 	while (line)
 	{
 		map = strjoin_wrapper(map, line);
 		if (!map)
-			return (printf(ERROR EEXTRACT), NULL);
+			return (NULL);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -110,19 +110,19 @@ char	*get_file_content(int fd)
 	res = NULL;
 	res = extract_elements(fd, res);
 	if (!res)
-		return (close(fd), NULL);
+		return (close(fd), printf(L "extract_elements()\n"), NULL);
 	tmp = skip_nl(fd);
 	res = strjoin_wrapper(res, tmp);
 	free(tmp);
 	if (!res)
-		return (close(fd), NULL);
+		return (close(fd), printf(ERROR T _FATAL L "skip_nl()\n"), NULL);
 	tmp = extract_map(fd);
 	res = strjoin_wrapper(res, tmp);
 	free(tmp);
 	if (!res)
-		return (close(fd), NULL);
+		return (close(fd), printf(ERROR T _FATAL L "extract_map()\n"), NULL);
 	if (ignore_nl_from_bottom_and_find_str(res, "\n\n"))
-		return (close(fd), printf(ERROR INVALID_BORDERS), NULL);
+		return (close(fd), free(res), printf(ERROR L _MAP_NOT_CLOSED), NULL);
 	close(fd);
 	return (res);
 }
