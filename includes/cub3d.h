@@ -6,7 +6,7 @@
 /*   By: aule-bre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 15:16:19 by aule-bre          #+#    #+#             */
-/*   Updated: 2025/04/19 11:12:53 by hadubois         ###   ########.fr       */
+/*   Updated: 2025/04/21 08:43:46 by hadubois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define _INVALID_CHAR_IN_MAP	"Invalid character in map\n"
 # define _INVALID_EXTENSION		"Invalid file extension\n"
 # define _MAP_NOT_CLOSED		"Map is not correctly closed\n"
-# define _SYNTAX				"Syntax error\n"
+# define _SYNTAX				"Invalid element syntax\n"
 # define _TOO_MANY_ARGS 		"Too many arguments\n"
 # define _FATAL					"Fatal\n"
 # define ERROR_MALLOC		"Memory allocation failed\n"
